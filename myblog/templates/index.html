@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% for post in post_list %}
+    {% for post in blogpost_list %}
         {% include "_post.html" with post=post only %}
     {% empty %}
         <p>No blog post entries yet.</p>
