@@ -5,7 +5,7 @@ from .forms import CommentForm
 
 
 class PostDetails(CreateView):
-    template_name = 'blog/post_detail.html'
+    template_name = 'blog/blogpost_detail.html'
     form_class = CommentForm
 
     def get_post(self):
