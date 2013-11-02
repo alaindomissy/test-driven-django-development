@@ -15,6 +15,13 @@ you should have a 2.6.x or 2.7.x version of Python.
 
     $ python -V
 
+You should also have `pip`_ installed on your machine, along with the `requirements.txt`_ file.
+
+.. code-block:: bash
+
+    # In the same directory where you downloaded requirements.txt
+    $ pip install -r requirements.txt
+
 .. HINT::
    Things you should type into your terminal or command prompt will always
    start with ``$`` in this workshop.
@@ -52,6 +59,17 @@ database and ``myblog/urls.py`` which maps URLs called by a web broser
 to the appropriate Python code.
 
 
+Directory variables
+-------------------
+
+Add the following to the top of your ``myblog/settings.py`` file:
+
+.. code-block:: python
+
+    import os
+    BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+
 Setting up the database
 -----------------------
 
@@ -69,7 +87,7 @@ First we need to update the ``DATABASES`` variable in our settings file
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': 'myblog.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'myblog.sqlite3'),
         }
     }
 
@@ -176,3 +194,6 @@ Now visit the admin site in your browser (http://localhost:8000/admin/).
     Quit the server by holding the control key and pressing C.
 
     .. _official documentation: https://docs.djangoproject.com/en/1.5/intro/tutorial01/#the-development-server
+
+.. _pip: http://www.pip-installer.org/en/latest/installing.html
+.. _requirements.txt: _static/requirements.txt

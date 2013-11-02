@@ -1,9 +1,12 @@
 Workshop: Test-Driven Web Development with Django
 =================================================
 
-Thank you for attending San Diego Python's workshop on test-driven
-development with Django. In this one-day workshop, you will learn to build a
-well-tested, Django-based website.
+Thank you for attending `San Diego Python <http://pythonsd.org/>`_'s workshop on test-driven
+development with the `Django <https://www.djangoproject.com/>`_ web framework. In this one-day
+workshop, you will learn to build a well-tested, Django-based website.
+
+This workshop was made possible by a grant from the `Python Software Foundation <http://python.org/psf/>`_
+`Outreach and Education Committee <http://python.org/psf/committees/#outreach-education-committee-orec>`_.
 
 
 Why test-driven development?
@@ -24,7 +27,7 @@ Prerequisites
 -------------
 
 * `Python <http://www.python.org/download/>`_ 2.6 or 2.7 (2.7 is recommended)
-* Install `Django <https://docs.djangoproject.com/en/1.5/intro/install/>`_
+* `Install Django <https://docs.djangoproject.com/en/1.5/intro/install/>`_
   1.5
 * The `Django tutorials <https://docs.djangoproject.com/en/1.5/intro/tutorial01/>`_
 
@@ -52,3 +55,7 @@ Contents
    :maxdepth: 2
 
    01-getting-started
+   02-models
+   03-views
+   04-more-views
+   05-forms
