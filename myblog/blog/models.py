@@ -2,7 +2,7 @@ from django.db import models
 from django.core.urlresolvers import reverse
 
 
-class Post(models.Model):
+class BlogPost(models.Model):
     title = models.CharField(max_length=500)
     author = models.ForeignKey('auth.User')
     body = models.TextField()
@@ -16,7 +16,7 @@ class Post(models.Model):
         return reverse('blog.views.post_details', kwargs={'pk': self.pk})
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post)
+    post = models.ForeignKey(BlogPost)
     name = models.CharField(max_length=100)
     email = models.EmailField()
     body = models.TextField()

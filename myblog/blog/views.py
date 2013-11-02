@@ -1,6 +1,6 @@
 from django.views.generic import CreateView
 from django.shortcuts import get_object_or_404
-from .models import Post
+from .models import BlogPost
 from .forms import CommentForm
 
 
@@ -9,7 +9,7 @@ class PostDetails(CreateView):
     form_class = CommentForm
 
     def get_post(self):
-        return get_object_or_404(Post, pk=self.kwargs['pk'])
+        return get_object_or_404(BlogPost, pk=self.kwargs['pk'])
 
     def dispatch(self, *args, **kwargs):
         self.blog_post = self.get_post()

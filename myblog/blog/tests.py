@@ -1,19 +1,19 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django_webtest import WebTest
-from .models import Post, Comment
+from .models import BlogPost, Comment
 from .forms import CommentForm
 
 
 class PostModelTest(TestCase):
 
     def test_unicode_representation(self):
-        post = Post(title="My post title")
+        post = BlogPost(title="My post title")
         self.assertEqual(unicode(post), post.title)
 
     def test_get_absolute_url(self):
         user = get_user_model().objects.create(username='some_user')
-        post = Post.objects.create(title="My post title", author=user)
+        post = BlogPost.objects.create(title="My post title", author=user)
         self.assertIsNotNone(post.get_absolute_url())
 
 
@@ -39,14 +39,14 @@ class ListPostsOnHomePage(TestCase):
         self.user = get_user_model().objects.create(username='some_user')
 
     def test_one_post(self):
-        Post.objects.create(title='1-title', body='1-body', author=self.user)
+        BlogPost.objects.create(title='1-title', body='1-body', author=self.user)
         response = self.client.get('/')
         self.assertContains(response, '1-title')
         self.assertContains(response, '1-body')
 
     def test_two_posts(self):
-        Post.objects.create(title='1-title', body='1-body', author=self.user)
-        Post.objects.create(title='2-title', body='2-body', author=self.user)
+        BlogPost.objects.create(title='1-title', body='1-body', author=self.user)
+        BlogPost.objects.create(title='2-title', body='2-body', author=self.user)
         response = self.client.get('/')
         self.assertContains(response, '1-title')
         self.assertContains(response, '1-body')
@@ -61,7 +61,7 @@ class BlogPostViewTest(WebTest):
 
     def setUp(self):
         self.user = get_user_model().objects.create(username='some_user')
-        self.post = Post.objects.create(title='1-title', body='1-body',
+        self.post = BlogPost.objects.create(title='1-title', body='1-body',
                                         author=self.user)
 
     def test_basic_view(self):
@@ -98,7 +98,7 @@ class CommentFormTest(TestCase):
 
     def setUp(self):
         user = get_user_model().objects.create_user('zoidberg')
-        self.post = Post.objects.create(author=user, title="My post title")
+        self.post = BlogPost.objects.create(author=user, title="My post title")
 
     def test_init(self):
         CommentForm(post=self.post)
