@@ -85,7 +85,7 @@ admin interface which we'll get to shortly:
     Creating table django_content_type
     Creating table django_session
 
-    You just installed Django's auth system, which means you don't have any superusers defined.
+    You just installed Django s auth system, which means you don t have any superusers defined.
     Would you like to create one now? (yes/no): yes
     Username (leave blank to use 'alain'): 
     Email address: alaindomissy@gmail.com
